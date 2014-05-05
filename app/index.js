@@ -8,7 +8,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
-var repoPath = '../../node_modules/javascript-sdk-boilerplate/';
+var sdkPath = '../../node_modules/javascript-sdk-boilerplate/';
 
 var JavascriptSdkBoilerplateGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -60,28 +60,28 @@ var JavascriptSdkBoilerplateGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     if(this.withExamples) {
-      this.directory(repoPath+'example', 'example');
+      this.directory(sdkPath+'example', 'example');
     }
 
     if(this.withGulp) {
-      this.copy(repoPath+'gulpfile.js', 'gulpfile.js');
+      this.copy(sdkPath+'gulpfile.js', 'gulpfile.js');
     }
 
     if(this.withTests) {
-      this.directory(repoPath+'test', 'test');
-      this.copy(repoPath+'.travis.yml', '.travis.yml');
+      this.directory(sdkPath+'test', 'test');
+      this.copy(sdkPath+'.travis.yml', '.travis.yml');
     }
 
-    this.directory(repoPath+'src', 'src');
-    // this.copy(repoPath+'.npmignore', '.gitignore');
-    this.copy(repoPath+'LICENSE', 'LICENSE');
-    this.copy(repoPath+'package.json', 'package.json');
-    this.copy(repoPath+'README.md', 'README.md');
+    this.directory(sdkPath+'src', 'src');
+    this.copy(sdkPath+'.npmignore', '.gitignore');
+    this.copy(sdkPath+'LICENSE', 'LICENSE');
+    this.copy(sdkPath+'package.json', 'package.json');
+    this.copy(sdkPath+'README.md', 'README.md');
   },
 
   projectfiles: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
+    this.copy('../../.editorconfig', '.editorconfig');
+    this.copy('../../.jshintrc', '.jshintrc');
   }
 });
 

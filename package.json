@@ -1,7 +1,7 @@
 {
   "name": "generator-javascript-sdk-boilerplate",
   "version": "0.0.2",
-  "description": "Yeoman generator",
+  "description": "Yeoman generator for javascript-sdk-boilerplate",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "monbro/generator-javascript-sdk-boilerplate",
@@ -20,7 +20,11 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "generator-javascript-sdk-boilerplate",
+    "boilerplate",
+    "javascript",
+    "sdk"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",

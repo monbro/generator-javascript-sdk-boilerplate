@@ -1,6 +1,6 @@
 # generator-javascript-sdk-boilerplate [![Build Status](https://secure.travis-ci.org/monbro/generator-javascript-sdk-boilerplate.png?branch=master)](https://travis-ci.org/monbro/generator-javascript-sdk-boilerplate)
 
-> [Yeoman](http://yeoman.io) generator
+> [Yeoman](http://yeoman.io) generator for [javascript-sdk-boilerplate](https://github.com/monbro/javascript-sdk-boilerplate)
 
 
 ## Getting Started

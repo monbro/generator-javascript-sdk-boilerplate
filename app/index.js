@@ -3,6 +3,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var clone = require("nodegit").Repo.clone;
 
 
 var JavascriptSdkBoilerplateGenerator = yeoman.generators.Base.extend({
@@ -42,6 +43,12 @@ var JavascriptSdkBoilerplateGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.mkdir('app');
     this.mkdir('app/templates');
+
+    clone("https://github.com/monbro/javascript-sdk-boilerplate", "tmp", null, function(err, repo) {
+      if (err) {
+        throw err;
+      }
+    });
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');

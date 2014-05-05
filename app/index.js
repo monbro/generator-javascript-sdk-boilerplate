@@ -73,15 +73,15 @@ var JavascriptSdkBoilerplateGenerator = yeoman.generators.Base.extend({
     }
 
     this.directory(sdkPath+'src', 'src');
-    this.copy(sdkPath+'.npmignore', '.gitignore');
     this.copy(sdkPath+'LICENSE', 'LICENSE');
     this.copy(sdkPath+'package.json', 'package.json');
     this.copy(sdkPath+'README.md', 'README.md');
   },
 
   projectfiles: function () {
-    this.copy('../../.editorconfig', '.editorconfig');
-    this.copy('../../.jshintrc', '.jshintrc');
+    this.copy('editorconfig', '.editorconfig');
+    this.copy('gitignore', '.gitignore');
+    this.copy('jshintrc', '.jshintrc');
   }
 });
 

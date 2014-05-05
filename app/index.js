@@ -73,7 +73,7 @@ var JavascriptSdkBoilerplateGenerator = yeoman.generators.Base.extend({
     }
 
     this.directory(repoPath+'src', 'src');
-    this.copy(repoPath+'.npmignore', '.gitignore');
+    // this.copy(repoPath+'.npmignore', '.gitignore');
     this.copy(repoPath+'LICENSE', 'LICENSE');
     this.copy(repoPath+'package.json', 'package.json');
     this.copy(repoPath+'README.md', 'README.md');

@@ -1,10 +1,13 @@
 'use strict';
+
+/**
+ * https://github.com/yeoman/yeoman/wiki/Generators
+ */
+
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
-var clone = require("nodegit").Repo.clone;
-
 
 var JavascriptSdkBoilerplateGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -28,30 +31,54 @@ var JavascriptSdkBoilerplateGenerator = yeoman.generators.Base.extend({
 
     var prompts = [{
       type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
+      name: 'withTests',
+      message: 'Would you like to add basic tests?',
+      default: true
+    },
+    {
+      type: 'confirm',
+      name: 'withGulp',
+      message: 'Would you like to use gulp js?',
+      default: true
+    },
+    {
+      type: 'confirm',
+      name: 'withExamples',
+      message: 'Would you like to include the html examples?',
       default: true
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.withTests = props.withTests;
+      this.withExamples = props.withExamples;
+      this.withGulp = props.withGulp;
 
       done();
     }.bind(this));
   },
 
   app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
 
-    clone("https://github.com/monbro/javascript-sdk-boilerplate", "tmp", null, function(err, repo) {
-      if (err) {
-        throw err;
-      }
-    });
+    if(this.withExamples) {
+      this.directory('../../node_modules/javascript-sdk-boilerplate/example', 'example');
+    }
 
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
+    this.directory('../../node_modules/javascript-sdk-boilerplate/src', 'src');
+
+    this.copy('../../node_modules/javascript-sdk-boilerplate/.npmignore', '.gitignore');
+
+    if(this.withGulp) {
+      this.copy('../../node_modules/javascript-sdk-boilerplate/gulpfile.js', 'gulpfile.js');
+    }
+
+    this.copy('../../node_modules/javascript-sdk-boilerplate/LICENSE', 'LICENSE');
+    this.copy('../../node_modules/javascript-sdk-boilerplate/package.json', 'package.json');
+    this.copy('../../node_modules/javascript-sdk-boilerplate/README.md', 'README.md');
+
+    if(this.withTests) {
+      this.directory('../../node_modules/javascript-sdk-boilerplate/test', 'test');
+      this.copy('../../node_modules/javascript-sdk-boilerplate/.travis.yml', '.travis.yml');
+    }
   },
 
   projectfiles: function () {

@@ -2,7 +2,6 @@
 
 > [Yeoman](http://yeoman.io) generator for [javascript-sdk-boilerplate](https://github.com/monbro/javascript-sdk-boilerplate)
 
-
 ## Getting Started
 
 ### What is Yeoman?
@@ -41,6 +40,11 @@ Yeoman has a heart of gold. He's a person with feelings and opinions, but he's v
 
 If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
+## Test this repo locally
+
+* ```npm i -g ../local/path/to/repo/generator-javascript-sdk-boilerplate```
+* switch to a new folder
+* ```yo javascript-sdk-boilerplate``` should use the just installed generator
 
 ## License
 
